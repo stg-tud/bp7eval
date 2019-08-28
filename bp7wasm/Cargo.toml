@@ -1,0 +1,16 @@
+[package]
+name = "bp7eval"
+version = "0.1.0"
+authors = ["Lars Baumgaertner <baumgaertner@cs.tu-darmstadt.de>"]
+edition = "2018"
+readme = "README.md"
+
+[dependencies]
+bp7 = "0.3"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+instant = {version = "0.1", features = [ "now" ]}
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+stdweb = "0.4"
+instant = {version = "0.1", features = [ "stdweb", "now" ]}
