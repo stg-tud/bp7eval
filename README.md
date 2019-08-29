@@ -30,8 +30,12 @@ Output gets written to `./results`
 
 ## Evaluation
 
-Preprocessing output
+### Preprocessing output
 
 ```
 ./eval/output2csv.sh results
 ```
+
+### Visualisation
+
+`./eval/bp7eval.ipynb``
