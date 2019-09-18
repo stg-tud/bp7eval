@@ -5,6 +5,9 @@ authors = ["Lars Baumgaertner <baumgaertner@cs.tu-darmstadt.de>"]
 edition = "2018"
 readme = "README.md"
 
+[profile.release]
+lto = true
+
 [dependencies]
 bp7 = "0.3"
 

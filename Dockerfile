@@ -94,11 +94,16 @@ RUN cd /src && git clone https://github.com/dtn7/dtn7-go dtn7-go-v0.1 && cd dtn7
 COPY bp7go-v0.1 /src/dtn7-go-v0.1/tests
 RUN cd /src && git clone https://github.com/dtn7/dtn7-go dtn7-go-v0.2 && cd dtn7-go-v0.2 && git checkout v0.2.0
 COPY bp7go-v0.2 /src/dtn7-go-v0.2/tests
+
+
+
 #RUN sed -i.bak 's/dtn7-go/dtn7/' /src/dtn7-go/go.mod
 COPY build.sh /
 COPY eval.sh / 
 
 RUN bash -c "export RUSTC_WRAPPER=sccache && /build.sh"
+
+COPY storagetest /src/storagetest
 
 # Run Chrome non-privileged
 #USER chrome

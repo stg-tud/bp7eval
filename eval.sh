@@ -13,6 +13,14 @@ stdbuf -oL ls -la /src/dtn7-go-v0.1/tests/wasm/test.wasm | awk '{print $5,$9}' 2
 stdbuf -oL ls -la /src/dtn7-go-v0.2/tests/tests | awk '{print $5,$9}' 2>&1 >> /output/binary.sizes.txt
 stdbuf -oL ls -la /src/dtn7-go-v0.2/tests/wasm/test.wasm | awk '{print $5,$9}' 2>&1 >> /output/binary.sizes.txt
 
+#echo "## benchmarking html5 storage"
+
+#cd /src/storagetest
+#basic-http-server >/dev/null &
+#stdbuf -oL ./run_bench_plain.sh 2>&1 > /output/storage-plain.out
+#stdbuf -oL ./run_bench_compressed.sh 2>&1 > /output/storage-compressed.out
+#killall basic-http-server
+
 echo "## running rust(native)"
 
 stdbuf -oL /src/bp7wasm/target/release/bp7eval 2>&1 > /output/bp7-rs.native.out

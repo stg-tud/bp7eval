@@ -13,4 +13,9 @@ for i in $1/*.out; do
     cat $1/$VARIANT.csv >> $1/complete.csv
 done
 
+for i in $1/storagetest.*; do
+    VARIANT=$(basename $i) 
+    echo "msgs,time" > $1/$VARIANT.csv
+    cat $i | grep "#msgs" | cut -d ":" -f 3 | awk -e '{OFS=","}{print $1, $3}' >> $1/$VARIANT.csv
+done 
 #cat $1/*.csv >> $1/complete.csv
