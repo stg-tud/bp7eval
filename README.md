@@ -38,4 +38,4 @@ Output gets written to `./results`
 
 ### Visualisation
 
-`./eval/bp7eval.ipynb``
+Jupyter Notebook: `./eval/bp7eval.ipynb`
